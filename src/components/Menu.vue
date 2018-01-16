@@ -31,13 +31,13 @@ export default {
   data () {
     return {
       listArr: [
-        {id: 1, name: 'Инфраструктура', src: '1'},
-        {id: 2, name: 'Преимущества Царёва Village', src: '2'},
-        {id: 3, name: 'О застройщике', src: '3'},
-        {id: 4, name: 'Новости', src: '4'},
-        {id: 5, name: 'Онлайн-камеры', src: '5'},
-        {id: 6, name: 'История строительства', src: '6'},
-        {id: 7, name: 'Документация', src: '7'},
+        {id: 1, name: 'Инфраструктура', src: 'infra'},
+        {id: 2, name: 'Преимущества Царёва Village', src: ''},
+        {id: 3, name: 'О застройщике', src: ''},
+        {id: 4, name: 'Новости', src: ''},
+        {id: 5, name: 'Онлайн-камеры', src: ''},
+        {id: 6, name: 'История строительства', src: ''},
+        {id: 7, name: 'Документация', src: 'documents'},
         {id: 8, name: 'Ипотека', src: 'martgage'},
         {id: 9, name: 'Конгтакты', src: 'contact'}
       ]

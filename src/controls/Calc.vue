@@ -6,28 +6,28 @@
       <label>первоначальный взнос</label>
       <input v-model="contribution"/>
       <div class="calc_buttons" @click="contribution = cost_flat * percent / 100">
-        <div :class="{ active: percent==10 }" @click="percent=10">10%</div>
-        <div :class="{ active: percent==15 }" @click="percent=15">15%</div>
-        <div :class="{ active: percent==20 }" @click="percent=20">20%</div>
-        <div :class="{ active: percent==25 }" @click="percent=25">25%</div>
-        <div :class="{ active: percent==30 }" @click="percent=30">30%</div>
-        <div :class="{ active: percent==35 }" @click="percent=35">35%</div>
-        <div :class="{ active: percent==40 }" @click="percent=40">40%</div>
+        <div :class="{ active: percent===10 }" @click="percent=10">10%</div>
+        <div :class="{ active: percent===15 }" @click="percent=15">15%</div>
+        <div :class="{ active: percent===20 }" @click="percent=20">20%</div>
+        <div :class="{ active: percent===25 }" @click="percent=25">25%</div>
+        <div :class="{ active: percent===30 }" @click="percent=30">30%</div>
+        <div :class="{ active: percent===35 }" @click="percent=35">35%</div>
+        <div :class="{ active: percent===40 }" @click="percent=40">40%</div>
       </div>
       <label>срок ипотеки</label>
       <input v-model="months"/>
       <div class="calc_buttons" @click="months = year * 12">
-        <div :class="{ active: year==3 }" @click="year=3">3<br>года</div>
-        <div :class="{ active: year==5 }" @click="year=5">5<br>года</div>
-        <div :class="{ active: year==7 }" @click="year=7">7<br>года</div>
-        <div :class="{ active: year==10 }" @click="year=10">10<br>года</div>
-        <div :class="{ active: year==15 }" @click="year=15">15<br>года</div>
-        <div :class="{ active: year==20 }" @click="year=20">20<br>года</div>
-        <div :class="{ active: year==25 }" @click="year=25">25<br>года</div>
-        <div :class="{ active: year==30 }" @click="year=30">30<br>года</div>
+        <div :class="{ active: year===3 }" @click="year=3">3<br>года</div>
+        <div :class="{ active: year===5 }" @click="year=5">5<br>года</div>
+        <div :class="{ active: year===7 }" @click="year=7">7<br>года</div>
+        <div :class="{ active: year===10 }" @click="year=10">10<br>года</div>
+        <div :class="{ active: year===15 }" @click="year=15">15<br>года</div>
+        <div :class="{ active: year===20 }" @click="year=20">20<br>года</div>
+        <div :class="{ active: year===25 }" @click="year=25">25<br>года</div>
+        <div :class="{ active: year===30 }" @click="year=30">30<br>года</div>
       </div>
       <label>процентная вставка</label>
-      <input :keyup="toCalc" v-model="interestRate"/>
+      <input v-on:keydown="toCalc" v-model="interestRate"/>
     </div>
     <div class="calc-total">
       <p>Ежемесячный платёж</p>
@@ -65,19 +65,19 @@ export default{
     toCalc: function () {
       this.credit = this.cost_flat - this.contribution
 
-      var S = this.credit
-      var p = this.interestRate
-      var n = this.year
+      let S = this.credit
+      let p = this.interestRate
+      let n = this.year
 
       p = p / 1200
       n = n * 12
 
       if (
-        n === 0 ||
-        p === 0
+        n ==== 0 ||
+        p ==== 0
       ) return
 
-      var res = (S * p / (1 - Math.pow(1 + p, -n))).toFixed(2)
+      let res = (S * p / (1 - Math.pow(1 + p, -n))).toFixed(2)
 
       this.monthlyPayment = parseInt(res)
     }

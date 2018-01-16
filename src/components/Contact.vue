@@ -5,7 +5,7 @@
     <img src="../assets/images/contact_bird.png"/>
 
     <ButtonTrigger
-      @onTrigger="onTrigger"
+      @onTrigger="val=>trigger=val"
       val_1="Адреса офисов"
       val_2="На карте"
     />
@@ -74,11 +74,6 @@ export default {
         }
       ],
       trigger: true
-    }
-  },
-  methods: {
-    onTrigger: function (val) {
-      this.trigger = val
     }
   }
 }
